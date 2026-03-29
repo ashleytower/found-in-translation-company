@@ -1,0 +1,64 @@
+schema: paperclip/v1
+
+agents:
+  ceo:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+        maxTurnsPerRun: 100
+        timeoutSec: 1800
+    permissions:
+      canCreateAgents: true
+    runtime:
+      heartbeat:
+        enabled: true
+        intervalSec: 3600
+        wakeOnDemand: true
+
+  engineering-lead:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-6
+        cwd: /Users/ashleytower/Documents/GitHub/found-in-translation
+        repoUrl: https://github.com/ashleytower/found-in-translation
+        maxTurnsPerRun: 300
+        timeoutSec: 3600
+        workspaceStrategy:
+          type: git_worktree
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: required
+    runtime:
+      heartbeat:
+        enabled: false
+        wakeOnDemand: true
+
+  ui-ux-designer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+        cwd: /Users/ashleytower/Documents/GitHub/found-in-translation
+        repoUrl: https://github.com/ashleytower/found-in-translation
+        maxTurnsPerRun: 150
+        timeoutSec: 1800
+    runtime:
+      heartbeat:
+        enabled: false
+        wakeOnDemand: true
+
+  content-strategist:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+        maxTurnsPerRun: 150
+        timeoutSec: 1800
+    runtime:
+      heartbeat:
+        enabled: false
+        wakeOnDemand: true
