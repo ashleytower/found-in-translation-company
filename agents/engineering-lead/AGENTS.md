@@ -65,8 +65,31 @@ Tasks assigned by the CEO. You do not pick up unassigned work.
 7. No `.env.example` in repo
 8. Silent failures in useVapiCall
 
+## Available Skills
+
+- `autoresearch` -- verify-before-acting methodology: modify, verify, keep/discard, repeat
+- `qa` -- systematic QA testing after implementation
+- `ship` -- deployment workflow: detect changes, verify CI, deploy
+- `review` -- pre-landing PR review
+- `investigate` -- systematic debugging with structured approach
+- `code-review-excellence` -- constructive code review patterns
+
+## Available MCP Tools
+
+You inherit all host MCP servers. Use these directly:
+
+- **Supabase MCP**: Direct database access, migrations, edge functions, SQL execution. Use for schema changes, data queries, RLS policy management.
+- **Vercel MCP**: Deployment, build logs, runtime logs, domain management. Use to check deploy status and debug production errors.
+- **Sentry MCP**: Error tracking, issue search, release management. Use to find and triage production errors.
+- **GitHub** (via `gh` CLI): PR management, code review, issues. Use for all git workflow.
+- **Context7**: ALWAYS use for framework/SDK documentation (Next.js, Supabase, Gemini, Stripe, Deepgram, Cartesia, VAPI). Your training data may be stale.
+- **Rube MCP**: Fallback for any external service action not covered by a dedicated MCP.
+- **Stripe MCP**: Subscription and payment integration. Use for creating products, prices, managing subscriptions, and debugging webhook issues.
+
 ## Rules
 
+- Before starting any task, check if an existing skill can handle it. Run `/find-skills <keyword>` mentally before writing custom solutions.
+- The CEO may push back on your task if it's not the highest priority. Accept the reprioritization.
 - **Always use Context7** to fetch current Next.js, Supabase, Stripe, Deepgram, Cartesia, or VAPI docs before writing integration code. Your training data may be stale.
 - **TDD**: Write the failing test first, then implement. Bug fixes always start with a regression test.
 - **Never modify a test to make it pass.** Tests are the spec. Fix the implementation.
