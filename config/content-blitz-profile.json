@@ -1,0 +1,56 @@
+{
+  "app": {
+    "name": "Found In Translation",
+    "description": "AI travel companion for real-time translation, currency conversion, and multilingual AI phone calls. Works when you're already there -- not a trip planner.",
+    "url": "https://foundintranslation.app",
+    "category": "productivity"
+  },
+  "tone": {
+    "voice": "First-person, specific, real. Parent and traveler. Never corporate. Never guru.",
+    "energy": "Warm, confident, slightly surprised it worked that well"
+  },
+  "bio": {
+    "tiktok": "Mom who built the app I needed in Japan.",
+    "instagram": "Real travel utility. Not another trip planner."
+  },
+  "imageGen": {
+    "provider": "kie",
+    "model": "flux-kontext",
+    "fallbackProvider": "gemini",
+    "basePrompt": "Candid travel photography. Real travelers in real situations -- markets, restaurants, shops, streets. Phone-in-hand moments. Natural light, warm tones. No stock photo vibes.",
+    "promptingGuide": "references/PROMPTING_GUIDE.md"
+  },
+  "platforms": {
+    "tiktok": {
+      "enabled": true,
+      "mode": "draft",
+      "accountWarmedUp": false
+    },
+    "instagram": {
+      "enabled": false,
+      "mode": "telegram-approve",
+      "igUserId": ""
+    }
+  },
+  "posting": {
+    "schedule": ["08:00", "17:00", "21:30"],
+    "timezone": "America/Toronto"
+  },
+  "competitors": ["google_translate", "papago", "wanderlog", "tripit", "sayhi"],
+  "strategy": {
+    "positioning": "The only travel app made for the moment you land.",
+    "hookAngles": [
+      "the phone call (sold out -- AI called -- you got it)",
+      "the safety moment (allergy or injury -- they understood)",
+      "the real conversation (two languages, back and forth)",
+      "the price reveal (cheaper here or at home?)",
+      "the google kill (Google got it wrong -- here's what it actually was)",
+      "freedom (be yourself in any language)"
+    ],
+    "channels": ["tiktok", "instagram", "reddit", "x"]
+  },
+  "antiSlop": {
+    "bannedWords": ["game-changer", "revolutionary", "seamless", "empower", "leverage", "unlock", "transform", "innovative"],
+    "bannedFormats": ["motivational poster copy", "guru energy", "corporate speak", "em dashes"]
+  }
+}

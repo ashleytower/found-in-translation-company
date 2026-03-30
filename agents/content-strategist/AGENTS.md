@@ -54,20 +54,35 @@ The founder's 11-year-old daughter was in Japan with the family. She used Found 
 
 ## Content Blitz Engine (Your Production Tool)
 
-You have access to the Content Blitz Engine at `~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/`. To produce carousels:
+The Content Blitz Engine is a generic pipeline at `~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/`. Brand context lives here in the company workspace -- not in the shared skill.
+
+**Before running the pipeline for the first time, copy the profile into place:**
+
+```bash
+cp ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/../../../paperclip-companies/found-in-translation/config/content-blitz-profile.json \
+   ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/profiles/found-in-translation/config.json
+```
+
+Or more simply -- the profile lives at:
+`~/Documents/paperclip-companies/found-in-translation/config/content-blitz-profile.json`
+
+Copy it to:
+`~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/profiles/found-in-translation/config.json`
+
+**Then run:**
 
 ```bash
 # From a topic
-bash ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/content-factory.sh found-in-translation --topic "Your topic" --caption "Your caption"
+bash ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/content-factory/scripts/content-factory.sh found-in-translation --topic "Your topic" --caption "Your caption"
 
 # From a YouTube video (repurpose)
-bash ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/content-factory.sh found-in-translation --youtube "URL"
+bash ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/content-factory/scripts/content-factory.sh found-in-translation --youtube "URL"
 
 # From the Notion content pipeline
-bash ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/content-factory.sh found-in-translation --source notion
+bash ~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/content-factory/scripts/content-factory.sh found-in-translation --source notion
 ```
 
-The `found-in-translation` profile config is at `~/Documents/GitHub/max-ai-employee/skills/tiktok-marketing/profiles/found-in-translation/config.json`. If it doesn't exist yet, create it following the `ai-automation` profile as a template. The config must include: tone, bio, positioning, hook angles, banned words, accent color.
+The profile config (`config/content-blitz-profile.json` in this repo) is the source of truth. If the brand context changes, update it here -- not in the shared skill infrastructure.
 
 Output goes to Telegram for manual posting (no direct IG/TikTok API publishing yet).
 
